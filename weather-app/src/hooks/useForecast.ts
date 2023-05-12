@@ -1,15 +1,17 @@
 import { useState, ChangeEvent, useEffect } from 'react';
 import { forecastType, optionType } from '../types';
 
+const BASE_URL = 'https://api.openweathermap.org';
+
 const useForecast = () => {
   const [term, setTerm] = useState<string>('');
-  const [location, setLocation] = useState<optionType | null>(null);
+  const [city, setCity] = useState<optionType | null>(null);
   const [options, setOptions] = useState<[]>([]);
   const [forecast, setForecast] = useState<forecastType | null>(null);
 
   const getSearchOptions = (value: string) => {
     fetch(
-      `https://api.openweathermap.org/geo/1.0/direct?q=${value.trim()}&limit=5&appid=${
+      `${BASE_URL}/geo/1.0/direct?q=${value.trim()}&limit=5&appid=${
         process.env.REACT_APP_API_KEY
       }`
     )
@@ -21,18 +23,20 @@ const useForecast = () => {
   const onInputChange = (e: ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value.trim();
     setTerm(value);
+
     if (value === '') return;
+
     getSearchOptions(value);
   };
 
-  const getForecast = (location: optionType) => {
+  const getForecast = (city: optionType) => {
     fetch(
-      `https://api.openweathermap.org/data/2.5/forecast?lat=${location.lat}&lon=${location.lon}&unit=metric&appid=${process.env.REACT_APP_API_KEY}`
+      `${BASE_URL}/data/2.5/forecast?lat=${city.lat}&lon=${city.lon}&units=metric&appid=${process.env.REACT_APP_API_KEY}`
     )
       .then((response) => response.json())
       .then((data) => {
         const forecastData = {
-          ...data.location,
+          ...data.city,
           list: data.list.slice(0, 16),
         };
         setForecast(forecastData);
@@ -40,21 +44,21 @@ const useForecast = () => {
   };
 
   const onSubmit = () => {
-    if (!location) return;
+    if (!city) return;
 
-    getForecast(location);
+    getForecast(city);
   };
 
   const onOptionSelect = (option: optionType) => {
-    setLocation(option);
+    setCity(option);
   };
 
   useEffect(() => {
-    if (location) {
-      setTerm(location.name);
+    if (city) {
+      setTerm(city.name);
       setOptions([]);
     }
-  }, [location]);
+  }, [city]);
 
   return { term, options, forecast, onInputChange, onOptionSelect, onSubmit };
 };
