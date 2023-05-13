@@ -32,7 +32,7 @@ const Search = ({
             value={term}
           />
 
-          <ul className="absolute top-9 bg-wi ml-l rounded-b-md">
+          <ul className="absolute top-9 bg-white ml-1 rounded-b-md">
             {options.map((option: optionType, index: number) => (
               <li key={option.name + '-' + index}>
                 <button
@@ -46,10 +46,10 @@ const Search = ({
           </ul>
 
           <button
-            className="rounded-r-md border-2 border-zinc-300 hover:border-zinc-500 hover:text-zinc-600 text-zinc-300 px-2 py-1 cursor-pointer"
+            className="rounded-r-md border-2 border-zinc-100 hover:border-zinc-500 hover:text-zinc-500  text-zinc-100 px-2 py-1 cursor-pointer"
             onClick={onSubmit}
           >
-            Search
+            search
           </button>
         </div>
       </section>

@@ -16,7 +16,14 @@ const useForecast = () => {
       }`
     )
       .then((res) => res.json())
-      .then((data) => setOptions(data));
+      .then((data) => setOptions(data))
+      .catch((e) => console.log(e));
+  };
+
+  const onSubmit = () => {
+    if (!city) return;
+
+    getForecast(city);
   };
 
   //define type like change event that happens in the HTML input
@@ -41,12 +48,6 @@ const useForecast = () => {
         };
         setForecast(forecastData);
       });
-  };
-
-  const onSubmit = () => {
-    if (!city) return;
-
-    getForecast(city);
   };
 
   const onOptionSelect = (option: optionType) => {

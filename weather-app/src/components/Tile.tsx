@@ -29,12 +29,14 @@ const Tile = ({
 }: Props): JSX.Element => {
   const Icon = icons[icon];
   return (
-    <article className="w-[140px] h-[130px] text-zinc-700 bg-white/20 backdrop-blur-ls rounded drop-shadow-lg p-2 mb-5 flex flex-col justify-between">
-      <div className="flex items-center text-sm font-bold">
+    <article className="w-[150px] h-[70px] text-zinc-700 bg-white/30 backdrop-blur-ls rounded drop-shadow-lg p-1 mb-5 flex flex-col justify-spacebetween ">
+      <div className="flex items-start text-sm font-bold relative">
         <Icon />
-        <h4 className="ml-1">{title}</h4>
-        <h3 className="mt-2 text-lg">{information}</h3>
-        <p className="text-xs font-bold">{description}</p>
+        <h4 className="pl-2">{title}</h4>
+        <h3 className="text-sm pl-7 font-black ">{information}</h3>
+        <p className="absolute text-xs font-mono top-9 left-1 right-1">
+          {description}
+        </p>
       </div>
     </article>
   );
