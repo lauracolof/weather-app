@@ -1,4 +1,9 @@
 # TypeScript Weather API
+---
+
+## Preview
+
+<img src="./weather-app/result.png" height="500" style="border-radius:10px;margin-bottom:1rem;" />
 
 ---
 
@@ -56,7 +61,3 @@ A typescript beginner friendly challenge! Enough if you are familiar with reactJ
 Tech:
 a computer/laptop to copy the files to with a code editor of your choice
 ```
-
-## Preview
-
-<img src="./weather-app/result.png" height="500" style="border-radius:10px;margin-bottom:1rem;" />
