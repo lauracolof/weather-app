@@ -1,5 +1,7 @@
 # TypeScript Weather API
+
 ---
+
 <div>
 <b>Quick menu:</b>
 <a href="https://theultimateapichallenge.com/challenges/weather-typescript-api" target="_blank" rel="noopener"
@@ -34,6 +36,7 @@
 <p>In this project we will work with a search field that listens to the user's input and makes an API call to get a suggestion of top 5 locations the user might be looking for. Once the user submits the search we will make another api call and get the user the weather data ✨</p>
 
 ### Tech stack
+
 ```
 Core:
 - ReactJS
@@ -45,13 +48,15 @@ Communication tool:
 ```
 
 ### Prerequisites
+
 ```
-Knowledge level: 
+Knowledge level:
 A typescript beginner friendly challenge! Enough if you are familiar with reactJS or if you're willing to challenge yourself.
 
-Tech: 
+Tech:
 a computer/laptop to copy the files to with a code editor of your choice
 ```
 
 ## Preview
-<img src="/preview.png" height="500" style="border-radius:10px;margin-bottom:1rem;" />
+
+<img src="./weather-app/result.png" height="500" style="border-radius:10px;margin-bottom:1rem;" />
